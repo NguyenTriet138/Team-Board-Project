@@ -17,6 +17,7 @@
     "react-refresh/only-export-components": [
       "warn",
       { "allowConstantExport": true }
-    ]
+    ],
+    "sort-imports": "off"
   }
 }

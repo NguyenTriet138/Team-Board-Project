@@ -47,6 +47,39 @@ npm run check
 - Set the `VITE_CONVEX_URL` and `CONVEX_DEPLOYMENT` environment variables in your `.env.local`. (Or run `npx convex init` to set them automatically.)
 - Run `npx convex dev` to start the Convex server.
 
+## Setting up Google OAuth
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the Google OAuth API:
+   - Go to "APIs & Services" > "Library"
+   - Search for "Google OAuth" and enable it
+4. Configure OAuth consent screen:
+   - Go to "APIs & Services" > "OAuth consent screen"
+   - Choose "External" user type
+   - Fill in the required application information
+5. Create OAuth credentials:
+   - Go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "OAuth client ID"
+   - Choose "Web application"
+   - Add authorized JavaScript origins:
+     - For development: `http://localhost:3000`
+     - For production: Add your production URL
+   - Add authorized redirect URIs:
+     - For development: `http://localhost:3000`
+     - For production: Add your production URL
+6. Copy the Client ID and add it to your `.env.local`:
+
+```bash
+VITE_GOOGLE_CLIENT_ID=your_client_id_here
+VITE_CONVEX_URL=your_convex_url_here
+```
+
+7. Add the OAuth configuration to your Convex deployment:
+   - Log in to the Convex dashboard
+   - Go to your deployment settings
+   - Add your Google OAuth configuration with your Client ID
+
 
 
 ## Routing
